@@ -14,8 +14,6 @@ window.tracer(0)
 score_a = 0
 score_b = 0
 
-
-
 # Paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
@@ -42,7 +40,7 @@ ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 
-ball.dx = 0.4
+ball.dx = 0.4 # determines the speed of the ball from the x and y coordinates
 ball.dy = 0.4
 
 # Pen scores
@@ -56,9 +54,9 @@ pen.write("Team Red: 0 Team Blue: 0", align="center", font=("Courier", 24, "norm
 
 # Functions
 def paddle_a_up():
-    y = paddle_a.ycor()
-    y += 20
-    paddle_a.sety(y)
+    y = paddle_a.ycor() # determines the existing y coordinate
+    y += 20 # adds 20 pixels (going up)
+    paddle_a.sety(y) # sets the coordinate that has been defined earlier into the new updated coordinate
 
 def paddle_a_down():
     y = paddle_a.ycor()
@@ -105,6 +103,7 @@ while True:
         ball.goto(0, 0)
         ball.dx *= -1
         score_a += 1
+        winsound.PlaySound("victory.wav", winsound.SND_ASYNC)
         pen.clear()
         pen.write("Team Red: {} Team Blue: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
 
@@ -113,6 +112,7 @@ while True:
         ball.dx *= -1
         score_b += 1
         pen.clear()
+        winsound.PlaySound("victory.wav", winsound.SND_ASYNC)
         pen.write("Team Red: {} Team Blue: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
 
 
